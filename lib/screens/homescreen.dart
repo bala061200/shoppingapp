@@ -81,7 +81,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ClipRRect(
-              // borderRadius: BorderRadius.circular(10),
               child: CarouselSlider(
                 options: CarouselOptions(
                   height: 180,
@@ -166,13 +165,12 @@ class _HomeScreenState extends State<HomeScreen> {
   String formatDescription(Map<String, dynamic> item) {
     List<String> lines = [];
 
-    // Add descriptions if they exist
     if (item["description1"] != null) lines.add(item["description1"]);
     if (item["description2"] != null) lines.add(item["description2"]);
 
     List<String> formattedLines =
-        lines.map((line) => '• $line').toList(); // Add bullet points
-    return formattedLines.join('\n'); // Join with a new line
+        lines.map((line) => '• $line').toList();
+    return formattedLines.join('\n');  
   }
 
   Widget contentContainer() {
@@ -226,7 +224,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.only(bottom: 10.0),
                 child: Row(
                   children: [
-                    // Image Container
                     Stack(
                       children: [
                         Container(
@@ -249,7 +246,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
 
-                        // Crown Icon at Top Left
                         Positioned(
                           top: 5,
                           left: 2,
@@ -258,8 +254,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
 
-                    SizedBox(width: 10), // Space between image and text
-                    // Title, Description & Rating
+                    SizedBox(width: 10), 
+        
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -274,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             overflow: TextOverflow.ellipsis,
                           ),
                           SizedBox(height: 4),
-                          // Bullet list descriptions with ellipsis
+              
                           if (item["description1"] != null)
                             bulletText(item["description1"]!),
                           if (item["description2"] != null)
@@ -289,7 +285,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Row(
                             children: [
-                              // Review 1 Container
+                     
                               Container(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 8,
@@ -305,7 +301,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   border: Border.all(
                                     color: Colors.transparent,
                                     width: 1,
-                                  ), // Gray border
+                                  ), 
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Center(
@@ -321,8 +317,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
 
-                              SizedBox(width: 10), // Space between review boxes
-                              // Review 2 Container (Same as Review 1)
+                              SizedBox(width: 10), 
                               Container(
                                 padding: EdgeInsets.symmetric(
                                   horizontal: 8,
@@ -338,7 +333,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   border: Border.all(
                                     color: Colors.transparent,
                                     width: 1,
-                                  ), // Gray border
+                                  ),
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Center(
@@ -348,7 +343,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
                                       color: Color.fromARGB(255, 134, 134, 134),
-                                      // Text color
                                     ),
                                     textAlign: TextAlign.center,
                                   ),
@@ -356,7 +350,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ],
                           ),
-                          // Arrow Icon
                         ],
                       ),
                     ),
@@ -370,22 +363,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget crownWithNumber(int number, color) {
     return Stack(
-      alignment: Alignment.center, // Align number inside crown
+      alignment: Alignment.center,
       children: [
         Icon(
-          FontAwesomeIcons.crown, // Crown icon
-          color: color, // Change color
-          size: 20, // Adjust size
+          FontAwesomeIcons.crown, 
+          color: color, 
+          size: 20, 
         ),
         Positioned(
-          top: 7, // Adjust position
+          top: 7,
           child: Center(
             child: Text(
               "$number",
               style: const TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.bold,
-                color: Colors.white, // Number color
+                color: Colors.white,
               ),
             ),
           ),
@@ -399,18 +392,18 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "• ", // Bullet point
+          "• ", 
           style: TextStyle(
             fontSize: 14,
-            color: Colors.black, // Bullet color
+            color: Colors.black, 
           ),
         ),
         Expanded(
           child: Text(
             text,
             style: TextStyle(fontSize: 14, color: Colors.black),
-            maxLines: 1, // Only 1 line per description
-            overflow: TextOverflow.ellipsis, // Add ellipsis if too long
+            maxLines: 1, 
+            overflow: TextOverflow.ellipsis, 
           ),
         ),
       ],
@@ -434,12 +427,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Header
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
           child: Column(
             crossAxisAlignment:
-                CrossAxisAlignment.start, // Ensure left alignment
+                CrossAxisAlignment.start, 
             children: [
               Text(
                 "골드 계급 사용자들이예요",
@@ -458,9 +450,8 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
 
         SizedBox(height: 10),
-        // Horizontal Scrollable List
         SizedBox(
-          height: 110, // Adjust height based on UI
+          height: 110, 
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: topReviewers.length,
@@ -528,7 +519,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     SizedBox(height: 5),
 
-                    // Name below image
                     Text(
                       topReviewers[index]["name"]!,
                       style: TextStyle(

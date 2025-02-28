@@ -1,6 +1,6 @@
-// Categories Screen
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shoppingapp/screens/homescreen.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
@@ -15,7 +15,11 @@ class CategoriesScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.pop(context),
+          onPressed:
+              () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              ),
         ),
         title: Center(
           child: Column(
@@ -51,7 +55,7 @@ class CategoriesScreen extends StatelessWidget {
                   border: Border.all(
                     color: Colors.transparent,
                     width: 1,
-                  ), // Gray border
+                  ), 
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text('조립컴 업체를 운영하며 리뷰를 작성합니다.'),
@@ -83,9 +87,9 @@ class CategoriesScreen extends StatelessWidget {
     return Column(
       children: [
         Divider(
-          color: const Color.fromARGB(255, 178, 178, 178), // Color of the line
-          thickness: 1, // Line thickness
-          height: 20, // Space around the divider
+          color: const Color.fromARGB(255, 178, 178, 178),
+          thickness: 1,
+          height: 20, 
         ),
         Column(
           children: [
@@ -115,7 +119,7 @@ class CategoriesScreen extends StatelessWidget {
                       border: Border.all(
                         color: Colors.grey,
                         width: 1,
-                      ), // Gray border
+                      ), 
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text('최신순'),
@@ -125,8 +129,8 @@ class CategoriesScreen extends StatelessWidget {
             ),
             Divider(
               color: const Color.fromARGB(255, 214, 214, 214),
-              thickness: 1, // Line thickness
-              height: 20, // Space around the divider
+              thickness: 1,
+              height: 20,
             ),
 
             Padding(
@@ -136,8 +140,8 @@ class CategoriesScreen extends StatelessWidget {
                   subcontainer(),
                   Divider(
                     color: const Color.fromARGB(255, 214, 214, 214),
-                    thickness: 1, // Line thickness
-                    height: 20, // Space around the divider
+                    thickness: 1, 
+                    height: 20,
                   ),
                   userContainer(),
                   reviewheaderContainer(),
@@ -179,7 +183,7 @@ class CategoriesScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              width: 200, // Set a proper width constraint
+              width: 200,
               child: Text(
                 "AMD 라이젠 5 5600X 버미어정품 멀티팩",
                 maxLines: 2,
@@ -349,8 +353,8 @@ class CategoriesScreen extends StatelessWidget {
           ),
           Divider(
             color: const Color.fromARGB(255, 214, 214, 214),
-            thickness: 1, // Line thickness
-            height: 20, // Space around the divider
+            thickness: 1, 
+            height: 20,  
           ),
         ],
       ),
